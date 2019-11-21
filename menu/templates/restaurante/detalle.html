@@ -1,0 +1,20 @@
+{% extends 'restaurante/base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="post">
+        <h1>Detalle de Menu</h1>
+        <div class="row">
+          <div class="alert alert-dismissible alert-info col-md-5">
+            <h4> <b>Nombre de menu:</b> {{ menu.name }}</h4>
+
+            <h4> <b>Descripcion:</b> </h4> <p> {{ menu.description|linebreaksbr }}</p>
+            <h4> <b>Precio del Menu:</b> Q {{ menu.total }}.00</h4>
+            <h4> <b>Contiene:</b> {{ menu.platos }}</h4>
+            <h4>{{ venta.platos }}</h4>
+          </div>
+        </div>
+
+
+    </div>
+{% endblock %}

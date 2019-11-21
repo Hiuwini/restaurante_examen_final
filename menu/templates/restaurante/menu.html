@@ -1,0 +1,31 @@
+{% extends 'restaurante/base.html' %}
+{% block content %}
+<div class="row">
+  <div class="col-md-3">
+    <div class="alert alert-dismissible alert-primary">
+      <h1>Crear Menu</h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-5">
+    <div class="card text-white bg-light mb-3" style="max-width: 20rem;">
+      <div class="card-header">Formulario</div>
+      <div class="card-body">
+        <form method="POST" class="post-form">
+          <div class="form-group">
+          {% csrf_token %}
+            {{ formulario.as_p }}
+            <button type="submit" class="save btn btn-success">Guardar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock %}

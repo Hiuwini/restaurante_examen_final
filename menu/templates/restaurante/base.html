@@ -1,14 +1,140 @@
-<div class="page-header">
-   <h1><a href="/">Menus</a></h1>
+{% load static %}
 
-   {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
- </div>
+<!DOCTYPE html>
+<html lang="en" dir="">
 
-{% block content %}
-{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>REVAN FINAL</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/css/themes/lite-blue.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/vendor/perfect-scrollbar.css' %}">
+
+</head>
+
+<body class="text-left">
+    <!-- Pre Loader Strat  -->
+    <div class='loadscreen' id="preloader">
+
+        <div class="loader spinner-bubble spinner-bubble-primary">
+
+
+
+        </div>
+    </div>
+    <!-- Pre Loader end  -->
+
+
+    <div class="app-admin-wrap layout-sidebar-large">
+        <div class="main-header">
+            <div class="logo">
+                <img src="{% static './images/logo.png' %}" alt="">
+            </div>
+
+            <div class="menu-toggle">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <!-- Mega menu -->
+
+                <!-- / Mega menu -->
+
+            </div>
+
+            <div style="margin: auto"></div>
+
+            <div class="header-part-right">
+                <!-- Full screen toggle -->
+                <i class="i-Full-Screen header-icon d-none d-sm-inline-block" data-fullscreen></i>
+                <!-- Grid menu Dropdown -->
+
+                <!-- Notificaiton -->
+
+                <!-- Notificaiton End -->
+
+                <!-- User avatar dropdown -->
+                
+            </div>
+
+        </div>
+        <!-- header top menu end -->
+
+        <div class="side-content-wrap">
+            <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar data-suppress-scroll-x="true">
+                <ul class="navigation-left">
+                    <li class="nav-item">
+                        <a class="nav-item-hold" href="/menu">
+                            <i class="nav-icon i-Door"></i>
+                            <span class="nav-text">Menus</span>
+                        </a>
+                        <div class="triangle"></div>
+                    </li>
+
+                </ul>
+            </div>
+
+
+            <div class="sidebar-overlay"></div>
+        </div>
+        <!--=============== Left side End ================-->
+
+        <!-- ============ Body content start ============= -->
+        <div class="main-content-wrap sidenav-open d-flex flex-column">
+            <div class="main-content">
+              {% if messages %}
+               <ul class="messages">
+                   {% for message in messages %}
+                   <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                   {% endfor %}
+               </ul>
+               {% endif %}
+              {% block content %}
+              {% endblock %}
+            </div>
+
+
+                <!-- content goes here -->
+            <!-- end of main content -->
+
+            <!-- Footer Start -->
+            <div class="flex-grow-1"></div>
+            <div class="app-footer">
+                <div class="row">
+                    <div class="col-md-9">
+                        <p><strong>REVAN FINAL</strong></p>
+                        <p>Examen Final Programacion Comercial</p>
+                    </div>
+                </div>
+                <div class="footer-bottom border-top pt-3 d-flex flex-column flex-sm-row align-items-center">
+
+                    <span class="flex-grow-1"></span>
+                    <div class="d-flex align-items-center">
+                        <img class="logo" src="{% static './images/logo.png' %}" alt="">
+                        <div>
+                            <p class="m-0">&copy; 2019 ralvarado</p>
+                            <p class="m-0">All rights reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- fotter end -->
+        </div>
+        <!-- ============ Body content End ============= -->
+    </div>
+    <!--=============== End app-admin-wrap ================-->
+
+
+    <script src="{% static 'js/vendor/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/vendor/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/vendor/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static 'js/es5/script.min.js' %}"></script>
+    <script src="{% static 'js/es5/sidebar.large.script.min.js' %}"></script>
+
+</body>
+
+</html>

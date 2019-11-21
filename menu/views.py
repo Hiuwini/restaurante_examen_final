@@ -2,7 +2,12 @@ from .forms import MenuForm
 from .models import Menu, Venta, Plato
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+
+class MenuListado(ListView):
+    model = Menu
 
 def new_menu(request):
     if request.method == "POST":
@@ -15,8 +20,8 @@ def new_menu(request):
             messages.add_message(request, messages.SUCCESS, 'Se Guardado Correctamente!')
     else:
         formulario = MenuForm()
-    return render(request, 'restaurante/menu_editar.html', {'formulario': formulario})
+    return render(request, 'restaurante/menu.html', {'formulario': formulario})
 
 def platos(request, pk):
     menu = get_object_or_404(Menu, pk=pk)
-    return render(request, 'restaurante/post_detail.html', {'menu': menu})
+    return render(request, 'restaurante/detalle.html', {'menu': menu})

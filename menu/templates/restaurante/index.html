@@ -1,0 +1,54 @@
+{% extends 'restaurante/base.html' %}
+{% load static %}
+{% block content %}
+<div class="breadcrumb">
+    <h1>Menus</h1>
+    <ul>
+        <li><a href="/eventos">Menu</a></li>
+        <li>Principal</li>
+    </ul>
+</div>
+<div class="separator-breadcrumb border-top"></div>
+
+<div class="col-md-12 mb-6">
+    <div class="card text-left">
+
+        <div class="card-body">
+            <h4 class="card-title mb-3">Menus</h4>
+            <div align="left" class="btn_crear mb-3">
+              <a href="nuevo" type="button" class="btn btn-primary">Crear</a>
+            </div>
+            <!-- Django Controller BEGIN -->
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Descripcion</th>
+                  <th>Precio</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                {% for menu in menu_list %}
+                <tr>
+                  <td>{{ menu.name }}</td>
+                  <td>{{ menu.description }}</td>
+                  <td>Q {{ menu.total }}.00</td>
+                  <td>
+                    <a href="{{menu.pk}}" title="Ver" type="button" class="btn btn-success">Ver Detalles </a>
+
+                  </td>
+                </tr>
+              {% endfor %}
+
+              </tbody>
+            </table>
+
+              <!-- Django Controller END -->
+            </div>
+          </div>
+        </div>
+
+
+{% endblock %}
